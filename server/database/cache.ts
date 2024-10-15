@@ -45,6 +45,7 @@ export class HnCache {
   }
 
   setNewsItem(id: number, newsItem: NewsItemModel): boolean {
+    //@ts-ignore
     return this.newsItemsCache.set(id.toString(), newsItem);
   }
 
@@ -57,6 +58,7 @@ export class HnCache {
   }
 
   getUsers(): Array<{ key: string; value: UserModel }> {
+    //@ts-ignore
     return this.userCache.dump();
   }
 
@@ -90,21 +92,25 @@ export class HnCache {
 
   newNewsItemsCache = new LRUCache<string, NewsItemModel>({
     max: 500,
+    //@ts-ignore
     maxAge: 1000 * 60 * 60, // 60 Minute cache: ms * s * m
   });
 
   newsItemsCache = new LRUCache<string, NewsItemModel>({
     max: 1000,
+    //@ts-ignore
     maxAge: 1000 * 60 * 60, // 60 Minute cache: ms * s * m
   });
 
   userCache = new LRUCache<string, UserModel>({
     max: 500,
+    //@ts-ignore
     maxAge: 1000 * 60 * 60 * 2, // 2 hour cache: ms * s * m
   });
 
   commentCache = new LRUCache<string, CommentModel>({
     max: 5000,
+    //@ts-ignore
     maxAge: 1000 * 60 * 60 * 1, // 1 hour cache: ms * s * m
   });
 

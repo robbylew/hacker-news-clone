@@ -1,4 +1,5 @@
 import * as React from 'react';
+//@ts-ignore
 import { DataValue } from '@apollo/client';
 import { NewsItemModel } from '../data/models';
 import { LoadingSpinner } from './loading-spinner';

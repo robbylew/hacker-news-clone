@@ -152,6 +152,7 @@ app
     );
     expressServer.get('/logout', async (req, res, next) => {
       try {
+        //@ts-ignore
         await req.logout(); // Passport.js now returns a Promise if no callback is provided
         res.redirect('/');
       } catch (err) {
@@ -177,6 +178,7 @@ app
       typeDefs,
     } as any);
     await apolloServer.start();
+    //@ts-ignore
     apolloServer.applyMiddleware({ app: expressServer, path: GRAPHQL_PATH });
 
     /* END GRAPHQL */

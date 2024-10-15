@@ -91,6 +91,7 @@ function UserPage(props: IUserPageProps): JSX.Element {
                     <td>
                       <textarea
                         cols={60}
+                        //@ts-ignore
                         defaultValue={parse(about)}
                         name="about"
                         onChange={onAboutChange}

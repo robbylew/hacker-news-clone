@@ -24,6 +24,7 @@ function parseCookies(
   );
 
   logger('Parsing cookie: ', userCookie);
+  //@ts-ignore
   return userCookie;
 }
 
