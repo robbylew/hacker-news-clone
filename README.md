@@ -1,13 +1,20 @@
 <h2 align="center">Hacker News Clone React</h2>
 
 <p align="center">
-![GitHub Stars](https://img.shields.io/github/stars/robbylew/hackernews-clone?style=social)
-![GitHub Followers](https://img.shields.io/github/followers/robbylew?style=social)
-![GitHub Issues](https://img.shields.io/github/issues/robbylew/hackernews-clone)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/robbylew/hackernews-clone)
+<a href="https://github.com/robbylew/hackernews-clone/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/robbylew/hackernews-clone.svg?style=social&label=Star"></a> 
+<a href="https://github.com/robbylew/"><img alt="GitHub Followers" src="https://img.shields.io/github/followers/robbylew.svg?style=social&label=Follow"></a> 
+<a href="https://github.com/robbylew/hackernews-clone/issues"><img alt="GitHub Issues" src="https://img.shields.io/github/issues/robbylew/hackernews-clone.svg"></a> 
+<a href="https://github.com/robbylew/hackernews-clone/pulls"><img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr-raw/robbylew/hackernews-clone.svg"></a>
+</p>
+
 
 This project is a clone of Hacker News rewritten with JavaScript, using React and GraphQL.
 
+<p align="center" margin-bottom="0">
+  <a href="http://www.hnclone.win" target="_blank">
+    <img alt="Hacker News Clone Demo" width="auto" height="auto" src="Image.png">
+  </a>
+</p>
 <p align="center">
   <a href="http://www.hackernews.uk">Live Demo</a>
 </p>
@@ -34,15 +41,6 @@ This project is a clone of Hacker News rewritten with JavaScript, using React an
 - **TypeScript** - Static typing for backend logic
 - **ESLint** - Code linting with the latest best practices
 
-#### **Dev/Test**
-
-- **Jest** - Robust testing framework with snapshot testing
-- **Docker** - Containerization for streamlined deployment
-- **Yarn/Pnpm** - Faster and more efficient package management
-- **GitHub Actions** - Automated Continuous Integration (CI) for testing and deployment
-
-## Benefits
-
 ### **Front End**
 
 - **Declarative UI** - Built with React for predictable and efficient UI updates
@@ -58,15 +56,13 @@ This project is a clone of Hacker News rewritten with JavaScript, using React an
 - **Authentication** - Secure user authentication with Passport.js
 - **Server Side Rendering** - Enhanced performance and SEO with Next.js
 - **Code Splitting** - Optimized bundle sizes with Next.js
-- **Container Based Runtime** - Simplified deployment with Docker
 
 ### **Dev/Test**
 
 - **Hot Module Reloading** - Fast development iterations with Next.js
-- **Snapshot Testing** - Reliable component testing with Jest
 - **GraphQL Playground** - Interactive GraphQL API testing with Apollo Server
-- **Faster Package Install** - Efficient dependency management with Yarn or Pnpm
-- **JS/TS Best Practices** - Maintainable and error-free code with ESLint and Prettier
+- **Faster Package Install** - Efficient dependency management with  pnpm
+- **JS/TS Best Practices** - Maintainable and error-free code with ESLint
 
 ## Architecture Overview
 
@@ -86,7 +82,7 @@ When the client loads a page, it preloads the next page's code via `<Link href="
 
 **Note:** Do not import from `server` or `pages` into `src` to avoid running code in the wrong environment.
 
-- **Project Root**: Contains configuration files such as TypeScript, Babel, ESLint, Docker, NPM, Yarn, Git.
+- **Project Root**: Contains configuration files such as TypeScript, Babel, ESLint, NPM, Git.
 
 ## How To Start
 
