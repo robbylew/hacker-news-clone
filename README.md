@@ -1,5 +1,6 @@
-# Hacker News Clone React/GraphQL
+<h2 align="center">Hacker News Clone React</h2>
 
+<p align="center">
 ![GitHub Stars](https://img.shields.io/github/stars/robbylew/hackernews-clone?style=social)
 ![GitHub Followers](https://img.shields.io/github/followers/robbylew?style=social)
 ![GitHub Issues](https://img.shields.io/github/issues/robbylew/hackernews-clone)
@@ -7,6 +8,9 @@
 
 This project is a clone of Hacker News rewritten with JavaScript, using React and GraphQL.
 
+<p align="center">
+  <a href="http://www.hackernews.uk">Live Demo</a>
+</p>
 
 ## Overview
 
