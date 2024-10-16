@@ -59,7 +59,7 @@ app
     const newsItemService = new NewsItemService(db, cache);
     const userService = new UserService(db, cache);
 
-    const expressServer: Application = express();    /* BEGIN PASSPORT.JS AUTHENTICATION */
+    const expressServer: Application = express();  /* BEGIN PASSPORT.JS AUTHENTICATION */
 
     passport.use(
       new (Strategy as any)(
