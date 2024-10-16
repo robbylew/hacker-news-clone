@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server-express';
 import { urlencoded } from 'body-parser';
 import cookieParser from 'cookie-parser';
-import express, { Application } from 'express';
+import express from 'express';
 import session from 'express-session';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref } from 'firebase/database';
@@ -59,7 +59,9 @@ app
     const newsItemService = new NewsItemService(db, cache);
     const userService = new UserService(db, cache);
 
-    const expressServer: Application = express();  /* BEGIN PASSPORT.JS AUTHENTICATION */
+    const expressServer = express();
+
+    /* BEGIN PASSPORT.JS AUTHENTICATION */
 
     passport.use(
       new (Strategy as any)(
@@ -150,14 +152,10 @@ app
         successReturnToOrRedirect: '/',
       })
     );
-    expressServer.get('/logout', async (req, res, next) => {
-      try {
-        //@ts-ignore
-        await req.logout(); // Passport.js now returns a Promise if no callback is provided
-        res.redirect('/');
-      } catch (err) {
-        next(err);
-      }
+    expressServer.get('/logout', (req, res) => {
+      //@ts-ignore
+      req.logout();
+      res.redirect('/');
     });
 
     /* END PASSPORT.JS AUTHENTICATION */
@@ -178,7 +176,7 @@ app
       typeDefs,
     } as any);
     await apolloServer.start();
-    //@ts-ignore
+    // @ts-ignore
     apolloServer.applyMiddleware({ app: expressServer, path: GRAPHQL_PATH });
 
     /* END GRAPHQL */
