@@ -13,7 +13,8 @@
     "debug:inspect-prod": "cross-env DEBUG=app* NODE_ENV=production node --inspect dist/server/server.js",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "tsc:check": "tsc --noEmit",
-    "start": "nodemon",
+    "start": "node dist/server/server.js",
+    "dev": "next dev",
     "start:prod": "cross-env NODE_ENV=production node dist/server/server.js"
   },
   "author": "Robert Lewis",
