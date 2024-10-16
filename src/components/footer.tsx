@@ -21,24 +21,18 @@ export function Footer(): JSX.Element {
             <Link href="/newsfaq">
               FAQ
             </Link>
-            &nbsp;| <a href="mailto:hn@ycombinator.com">Support</a>
+            &nbsp;|{' '}
+
+            <Link href="/lists">
+              Lists
+            </Link>
             &nbsp;| <a href="https://github.com/HackerNews/API">API</a>
             &nbsp;|{' '}
             <Link href="/security">
               Security
             </Link>
-            &nbsp;|{' '}
-            <Link href="/lists">
-              Lists
-            </Link>
-            &nbsp;|{' '}
-            <Link href="/bookmarklet">
-              Bookmarklet
-            </Link>
-            &nbsp;|{' '}
-            <Link href="/dmca">
-              DMCA
-            </Link>
+            &nbsp;| <a href="https://www.ycombinator.com/legal/">Legal</a>
+
             &nbsp;| <a href="http://www.ycombinator.com/apply/">Apply to YC</a>
             &nbsp;| <a href="mailto:hn@ycombinator.com">Contact</a>
           </span>
