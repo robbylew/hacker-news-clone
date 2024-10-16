@@ -1,0 +1,6 @@
+# Exclude cache directories
+.next/cache/
+
+# Exclude other unnecessary directories
+node_modules/
+dist/
