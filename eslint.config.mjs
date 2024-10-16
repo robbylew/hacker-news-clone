@@ -19,7 +19,7 @@ const compat = new FlatCompat({
 });
 
 export default [{
-    ignores: ["**/node_modules", "**/__mocks__*", "**/__tests__*", "**/*.spec.*"],
+    ignores: ["**/node_modules", "**/__mocks__*", "**/__tests__*", "**/*.spec.*", "next.config.js"],
 }, ...fixupConfigRules(compat.extends(
     "eslint:recommended",
     "plugin:react/recommended",
