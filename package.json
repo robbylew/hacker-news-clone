@@ -5,6 +5,7 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf ./.next",
     "build": "npm run clean && next build && tsc --project tsconfig-server.json",
+    "heroku-postbuild": "npm run build",
     "build:prod": "cross-env NODE_ENV=production npm run build",
     "build:static-website": "rm -rf build/static && cross-env NODE_ENV=production next build && next export",
     "debug": "cross-env DEBUG=app:* npm start",
@@ -38,6 +39,7 @@
     "express-session": "^1.18.1",
     "firebase": "^10.14.1",
     "graphql": "^16.9.0",
+    "heroku": "^8.7.1",
     "html-react-parser": "^5.1.18",
     "lru-cache": "^11.0.1",
     "next": "^14.2.15",
