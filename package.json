@@ -9,7 +9,7 @@
     "clean": "rm -rf dist && rm -rf ./.next",
     "build": "npm run clean && next build && tsc --project tsconfig-server.json",
     "build:prod": "cross-env NODE_ENV=production npm run build",
-    "build:static-website": "rm -rf build/static && cross-env NODE_ENV=production next build && next export -o build/static",
+    "build:static-website": "rm -rf build/static && cross-env NODE_ENV=production next build && next export",
     "debug": "cross-env DEBUG=app:* npm start",
     "debug:all": "cross-env DEBUG=* npm start",
     "debug:inspect": "cross-env DEBUG=app* TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} node --inspect -r ts-node/register server/server.ts --project tsconfig-server.json",

@@ -1,5 +1,9 @@
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   future: {
+    // Ensure webpack5 is used
     webpack5: true,
   },
   webpack: (config) => {
@@ -7,6 +11,11 @@ module.exports = {
 
     return config;
   },
-  compress: true, // Enable gzip compression
-  poweredByHeader: false, // Remove the X-Powered-By header
-};
+  // Enable gzip compression
+  compress: true, 
+  // Remove the X-Powered-By header
+  poweredByHeader: false, 
+  output: 'export',
+}
+
+module.exports = nextConfig;

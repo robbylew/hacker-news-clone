@@ -14,3 +14,4 @@ npm-debug.log
 
 # Exclude cache specifically
 .next/cache/
+out
