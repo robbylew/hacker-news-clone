@@ -7,4 +7,6 @@ module.exports = {
 
     return config;
   },
+  compress: true, // Enable gzip compression
+  poweredByHeader: false, // Remove the X-Powered-By header
 };
