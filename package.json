@@ -65,7 +65,6 @@
     "@types/react": "^18.3.11",
     "@typescript-eslint/eslint-plugin": "^8.9.0",
     "@typescript-eslint/parser": "^8.9.0",
-    "cross-env": "^7.0.3",
     "depcheck": "^1.4.7",
     "eslint": "^9.12.0",
     "eslint-plugin-import": "^2.31.0",
