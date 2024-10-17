@@ -10,7 +10,5 @@ logs
 npm-debug.log
 .next/
 .next/cache/
-pnpm-lock.yaml
-package-lock.json
 .prettierignore
 node_modules
