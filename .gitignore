@@ -20,3 +20,4 @@ nodemon.json
 .gitattributes
 .npmignore
 .prettierignore
+next-env.d.ts
