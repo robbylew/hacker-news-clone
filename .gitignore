@@ -10,5 +10,4 @@ logs
 npm-debug.log
 .next/
 .next/cache/
-.prettierignore
 node_modules
