@@ -17,3 +17,6 @@ out
 .vercel
 Procfile
 nodemon.json
+.gitattributes
+.npmignore
+.prettierignore
