@@ -39,6 +39,7 @@ export function Header(props: IHeaderProps): JSX.Element {
                 <HeaderNav currentUrl={currentUrl} isNavVisible={isNavVisible} title={title} />
               </td>
               <td style={{ textAlign: 'right', padding: '0px', paddingRight: '4px' }}>
+                <a href="https://github.com/robbylew/hackernews-clone">github repo</a>
                 {me ? (
                   <span className="pagetop">
                     <Link href={`/user?id=${me.id}`}>
@@ -53,6 +54,7 @@ export function Header(props: IHeaderProps): JSX.Element {
                   </span>
                 ) : (
                   <span className="pagetop">
+                    
                     <Link href={`/login?goto=${currentUrl}`}>
                       login
                     </Link>

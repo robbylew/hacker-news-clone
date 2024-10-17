@@ -9,12 +9,11 @@ dist
 logs
 node_modules
 npm-debug.log
-# Next.js build output
 .next/
-
-# Exclude cache specifically
 .next/cache/
-
-
+pnpm-lock.yaml
+package-lock.json
 out
 .vercel
+Procfile
+nodemon.json

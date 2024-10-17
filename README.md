@@ -12,7 +12,7 @@ This project is a clone of Hacker News rewritten with JavaScript, using React an
 
 <p align="center" margin-bottom="0">
   <a href="http://hackernews.uk" target="_blank">
-    <img alt="Hacker News Clone Demo" width="auto" height="auto" src="Image.png">
+    <img alt="Hacker News Clone Demo" width="auto" height="auto" src="/public/Image.png">
   </a>
 </p>
 <p align="center">
