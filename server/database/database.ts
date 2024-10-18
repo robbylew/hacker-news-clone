@@ -50,6 +50,26 @@ export class HnDatabase {
       .catch((reason) => logger('Fetching post failed:', reason));
   }
 
+  async getAllNewsItems(): Promise<NewsItemModel[]> {
+      logger('Fetching all news items for sitemap');
+  
+      const feed = await this.getFeed(FeedType.NEW); // Use FeedType.NEW
+  
+      if (!feed) {
+          return [];
+      }
+  //@ts-ignore
+      const newsItems: NewsItemModel[] = await Promise.all(
+          feed.map(async (id) => {
+              const item = await this.fetchNewsItem(id);
+              return item ? item : null;
+          })
+      );
+  
+      return newsItems.filter((item) => item !== null) as NewsItemModel[];
+  }
+  
+
   async fetchComment(id: number): Promise<CommentModel | void> {
     logger('Fetching comment:', `${HN_API_URL}/item/${id}.json`);
 

@@ -10,6 +10,8 @@ import passport from 'passport';
 import { Strategy } from 'passport-local';
 import { parse } from 'url';
 import dotenv from 'dotenv';
+import { create } from 'xmlbuilder2';
+import NodeCache from 'node-cache';
 
 dotenv.config();
 /* eslint-disable import/first */
@@ -35,7 +37,7 @@ import { ServerResponse } from 'http';
 
 const ONE_MINUTE = 1000 * 60;
 const SEVEN_DAYS = 1000 * 60 * 60 * 24 * 7;
-
+const sitemapCache = new NodeCache({ stdTTL: 3600 }); // Cache for 1 hour
 // Seed the in-memory data using the HN api
 const delay = dev ? ONE_MINUTE : 0;
 
@@ -60,6 +62,59 @@ app
 
     const expressServer = express();
 
+//@ts-ignore
+    expressServer.get('/sitemap.xml', async (req, res) => {
+      try {
+        const cachedSitemap = sitemapCache.get('sitemap');
+        if (cachedSitemap) {
+          res.header('Content-Type', 'application/xml');
+          return res.send(cachedSitemap);
+        }
+    
+        const newsItems = await db.getAllNewsItems();
+        const baseUrl = process.env.BASE_URL || 'https://yourdomain.com';
+    
+        const root = create({ version: '1.0', encoding: 'UTF-8' })
+          .ele('urlset', { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' });
+    
+        const staticPages = [
+          { loc: `${baseUrl}/`, changefreq: 'daily', priority: '1.0' },
+          { loc: `${baseUrl}/newest`, changefreq: 'daily', priority: '0.8' },
+          { loc: `${baseUrl}/ask`, changefreq: 'daily', priority: '0.8' },
+          { loc: `${baseUrl}/show`, changefreq: 'daily', priority: '0.8' },
+          { loc: `${baseUrl}/jobs`, changefreq: 'daily', priority: '0.8' },
+          { loc: `${baseUrl}/about`, changefreq: 'monthly', priority: '0.5' },
+          { loc: `${baseUrl}/login`, changefreq: 'monthly', priority: '0.5' },
+          { loc: `${baseUrl}/register`, changefreq: 'monthly', priority: '0.5' },
+          // Add more static URLs as needed
+        ];
+    
+        staticPages.forEach(page => {
+          const url = root.ele('url');
+          url.ele('loc').txt(page.loc);
+          url.ele('changefreq').txt(page.changefreq);
+          url.ele('priority').txt(page.priority);
+        });
+    
+        newsItems.forEach(item => {
+          const url = root.ele('url');
+          url.ele('loc').txt(`${baseUrl}/news/${item.id}`);
+          url.ele('lastmod').txt(new Date(item.creationTime).toISOString());
+          url.ele('changefreq').txt('weekly');
+          url.ele('priority').txt('0.6');
+        });
+    
+        const xml = root.end({ prettyPrint: true });
+        sitemapCache.set('sitemap', xml);
+    
+        res.header('Content-Type', 'application/xml');
+        res.send(xml);
+      } catch (error) {
+        console.error('Error generating sitemap:', error);
+        res.status(500).send('Internal Server Error');
+      }
+    });
+    
     /* BEGIN PASSPORT.JS AUTHENTICATION */
 
     passport.use(

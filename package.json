@@ -43,10 +43,12 @@
     "html-react-parser": "^5.1.18",
     "lru-cache": "^11.0.1",
     "next": "^14.2.15",
+    "node-cache": "^5.1.2",
     "passport": "^0.7.0",
     "passport-local": "1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "xmlbuilder2": "^3.1.1",
     "yarn": "^1.22.22"
   },
   "devDependencies": {
