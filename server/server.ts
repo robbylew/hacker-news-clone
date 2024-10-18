@@ -72,7 +72,7 @@ app
         }
     
         const newsItems = await db.getAllNewsItems();
-        const baseUrl = process.env.BASE_URL || 'https://yourdomain.com';
+        const baseUrl = process.env.BASE_URL || 'https://hackernews.uk';
     
         const root = create({ version: '1.0', encoding: 'UTF-8' })
           .ele('urlset', { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' });
@@ -98,7 +98,7 @@ app
     
         newsItems.forEach(item => {
           const url = root.ele('url');
-          url.ele('loc').txt(`${baseUrl}/news/${item.id}`);
+          url.ele('loc').txt(`${baseUrl}/item?id=${item.id}`);
           url.ele('lastmod').txt(new Date(item.creationTime).toISOString());
           url.ele('changefreq').txt('weekly');
           url.ele('priority').txt('0.6');
