@@ -16,4 +16,4 @@ Disallow: /wp-includes/
 Disallow: /*.php$
 
 # Sitemap location
-Sitemap: https://www.yourforumwebsite.com/sitemap.xml
+Sitemap: https://hackernews.uk/sitemap.xml
