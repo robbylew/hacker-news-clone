@@ -15,7 +15,6 @@ dotenv.config();
 /* eslint-disable import/first */
 
 import {
-  APP_PORT,
   dev,
   GRAPHQL_PATH,
   HN_API_VERSION,
@@ -207,7 +206,7 @@ app
 
     warmCache(db, cache, feedService);
 
-    expressServer.listen(APP_PORT, () => {
+    expressServer.listen(process.env.PORT || 3000, () => {
       console.log(`> App listening on port ${APP_PORT}`);
       console.log(`> GraphQL ready on ${GRAPHQL_PATH}`);
       console.log(`> GraphQL Playground is ${useGraphqlPlayground ? '' : 'not '}enabled`);
