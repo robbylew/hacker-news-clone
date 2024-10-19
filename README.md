@@ -35,25 +35,15 @@ This project is a clone of Hacker News rewritten with JavaScript, using React an
 - **Node.js** - JavaScript runtime environment
 - **Express** - Web server framework
 - **Apollo Server v4** - Advanced GraphQL server
-- **Passport.js** - Secure authentication
 - **TypeScript** - Static typing for backend logic
 - **ESLint** - Code linting with the latest best practices
 
 ### **Server**
 
-- **Universal JS** - Shared code between client and server with Node.js and Express
 - **Declarative GraphQL Schema** - Define GraphQL APIs with Apollo Server v4
 - **GraphQL Query Batching & Stored Queries** - Efficient data fetching strategies
-REMOVED - **Authentication** - Secure user authentication with Passport.js
 - **Server Side Rendering** - Enhanced performance and SEO with Next.js
 - **Code Splitting** - Optimized bundle sizes with Next.js
-
-### **Dev/Test**
-
-- **Hot Module Reloading** - Fast development iterations with Next.js
-- **GraphQL Playground** - Interactive GraphQL API testing with Apollo Server
-- **Faster Package Install** - Efficient dependency management with  pnpm
-- **JS/TS Best Practices** - Maintainable and error-free code with ESLint
 
 ## Architecture Overview
 
