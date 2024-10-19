@@ -44,7 +44,7 @@ This project is a clone of Hacker News rewritten with JavaScript, using React an
 - **Universal JS** - Shared code between client and server with Node.js and Express
 - **Declarative GraphQL Schema** - Define GraphQL APIs with Apollo Server v4
 - **GraphQL Query Batching & Stored Queries** - Efficient data fetching strategies
-- **Authentication** - Secure user authentication with Passport.js
+REMOVED - **Authentication** - Secure user authentication with Passport.js
 - **Server Side Rendering** - Enhanced performance and SEO with Next.js
 - **Code Splitting** - Optimized bundle sizes with Next.js
 
