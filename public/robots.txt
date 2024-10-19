@@ -1,8 +1,6 @@
 # Allow all web crawlers full access
 User-agent: *
 Disallow: /admin/
-Disallow: /login/
-Disallow: /register/
 Disallow: /user/
 Disallow: /private/
 Disallow: /cart/

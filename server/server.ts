@@ -84,8 +84,6 @@ app
           { loc: `${baseUrl}/show`, changefreq: 'daily', priority: '0.8' },
           { loc: `${baseUrl}/jobs`, changefreq: 'daily', priority: '0.8' },
           { loc: `${baseUrl}/about`, changefreq: 'monthly', priority: '0.5' },
-          { loc: `${baseUrl}/login`, changefreq: 'monthly', priority: '0.5' },
-          { loc: `${baseUrl}/register`, changefreq: 'monthly', priority: '0.5' },
           // Add more static URLs as needed
         ];
     
@@ -117,102 +115,13 @@ app
     
     /* BEGIN PASSPORT.JS AUTHENTICATION */
 
-    passport.use(
-      new (Strategy as any)(
-        {
-          usernameField: 'id',
-        },
-        async (username, password, done) => {
-          const user = await userService.getUser(username);
-          if (!user) {
-            return done(null, false, { message: 'Incorrect username.' });
-          }
-
-          if (!(await userService.validatePassword(username, password))) {
-            return done(null, false, { message: 'Incorrect password.' });
-          }
-
-          return done(null, user);
-        }
-      )
-    );
 
     /*
       In this example, only the user ID is serialized to the session,
       keeping the amount of data stored within the session small. When
       subsequent requests are received, this ID is used to find the user,
       which will be restored to req.user.
-    */
-    passport.serializeUser((user: unknown, cb) => {
-      cb(null, (user as UserModel).id);
-    });
-    passport.deserializeUser((id: string, cb) => {
-      (async (): Promise<void> => {
-        const user = await userService.getUser(id);
-
-        cb(null, user || null);
-      })();
-    });
-
-    expressServer.use(cookieParser('mysecret'));
-    expressServer.use(
-      session({
-        cookie: { maxAge: SEVEN_DAYS }, // Requires https: secure: false
-        resave: false,
-        rolling: true,
-        saveUninitialized: false,
-        secret: 'mysecret',
-      })
-    );
-    expressServer.use(passport.initialize());
-    expressServer.use(urlencoded({ extended: false }) as express.Handler);
-    expressServer.use(passport.session());
-
-    expressServer.post(
-      '/login',
-      (req, res, next) => {
-        // @ts-ignore returnTo is an undocumented feature of passportjs
-        req.session!.returnTo = req.body.goto;
-        next();
-      },
-      passport.authenticate('local', {
-        failureRedirect: '/login?how=unsuccessful',
-        successReturnToOrRedirect: '/',
-      })
-    );
-    expressServer.post(
-      '/register',
-      async (req, res, next) => {
-        if (!req.user) {
-          try {
-            await userService.registerUser({
-              id: req.body.id,
-              password: req.body.password,
-            });
-            // @ts-ignore returnTo is an undocumented feature of passportjs
-            req.session!.returnTo = `/user?id=${req.body.id}`;
-          } catch (err) {
-            // @ts-ignore returnTo is an undocumented feature of passportjs
-            req.session!.returnTo = `/login?how=${err.code}`;
-          }
-        } else {
-          // @ts-ignore returnTo is an undocumented feature of passportjs
-          req.session!.returnTo = '/login?how=user';
-        }
-        next();
-      },
-      passport.authenticate('local', {
-        failureRedirect: '/login?how=unsuccessful',
-        successReturnToOrRedirect: '/',
-      })
-    );
-    expressServer.get('/logout', (req, res) => {
-      //@ts-ignore
-      req.logout();
-      res.redirect('/');
-    });
-
-    /* END PASSPORT.JS AUTHENTICATION */
+*/
 
     /* BEGIN GRAPHQL */
 

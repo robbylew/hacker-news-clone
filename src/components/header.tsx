@@ -41,12 +41,12 @@ export function Header(props: IHeaderProps): JSX.Element {
               <td style={{ textAlign: 'right', padding: '0px', paddingRight: '4px' }}>
                 {me ? (
                   <span className="pagetop">
-                    <Link href={`/user?id=${me.id}`}>
+                    <Link href={`https://news.ycombinator.com/user?id=${me.id}`}>
                       {me.id}
                     </Link>
                     {` (${me.karma}) | `}
                     <a
-                      href={`/logout?auth=d78ccc2c6120ffe08f32451519c2ff46d34c51ab&amp;goto=${currentUrl}`}
+                      href={`https://news.ycombinator.com/user?id=${me.id}`}
                     >
                       logout
                     </a>
@@ -54,7 +54,7 @@ export function Header(props: IHeaderProps): JSX.Element {
                 ) : (
                   <span className="pagetop">
                     
-                    <Link href={`/login?goto=${currentUrl}`}>
+                    <Link href={"https://news.ycombinator.com/login?goto=news"}>
                       login
                     </Link>
                   </span>

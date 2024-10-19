@@ -54,10 +54,6 @@ export function HeaderNav(props: IHeaderNavProps): JSX.Element {
       <Link href="/submit" className={currentUrl === '/submit' ? 'topsel' : ''}>
         submit
       </Link>
-      {' | '}
-      <Link href="https://github.com/robbylew/hacker-news-clone">
-       github repo
-      </Link>
       {currentUrl === '/best' && ' | '}
       {currentUrl === '/best' && (
         <Link href="/best" className="topsel">

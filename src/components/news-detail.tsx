@@ -45,9 +45,7 @@ export function NewsDetail(props: INewsDetailProps): JSX.Element {
   } = props;
 
   const [hideNewsItem] = useMutation(HIDE_NEWS_ITEM_MUTATION, {
-    onError() {
-      Router.push('/login', `/hide?id=${id}&how=up&goto=news`);
-    },
+    onError: () => window.location.href = `https://news.ycombinator.com/hide?id=${id}&how=up&goto=news`,
     variables: { id },
   });
 

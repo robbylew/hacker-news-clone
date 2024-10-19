@@ -22,39 +22,4 @@ export class UserService {
     return this.db.getNewsItems().filter((newsItem) => newsItem.submitterId === id);
   }
 
-  async validatePassword(id: string, password: string): Promise<boolean> {
-    const user = this.cache.getUser(id);
-    if (user) {
-      return (
-        (await createHash(password, user.passwordSalt!, passwordIterations)) === user.hashedPassword
-      );
-    }
-
-    return false;
-  }
-
-  async registerUser(user: { id: string; password: string }): Promise<UserModel> {
-    // Check if user is valid
-    validateNewUser(user);
-
-    // Check if user already exists
-    if (this.cache.getUser(user.id)) {
-      throw new Error('Username is taken.');
-    }
-
-    // Go ahead and create the new user
-    const passwordSalt = createSalt();
-    const hashedPassword = await createHash(user.password, passwordSalt, passwordIterations);
-
-    const newUser = new UserModel({
-      hashedPassword,
-      id: user.id,
-      passwordSalt,
-    });
-
-    // Store the new user
-    this.cache.setUser(user.id, newUser);
-
-    return newUser;
-  }
 }
