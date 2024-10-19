@@ -23,7 +23,7 @@ export function MainLayout(props: IMainLayoutProps): JSX.Element {
     currentUrl,
     isNavVisible = true,
     isFooterVisible = true,
-    title = 'Hacker News',
+    title = 'Hacker News Clone',
   } = props;
 
   return (
